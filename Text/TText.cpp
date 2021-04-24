@@ -200,7 +200,7 @@ void TText::Print(TTextLink *p,TTextLink *curr)
 		int tab = Stack.Size();
 		for (int i = 0; i < tab; i++)  s += ' ';
 		s += p->str;
-		if (curr == p) cout << "pCurr is here: " << s << endl;
+		if (curr == p) cout << ">" << s << endl;
 		else cout<<" "<<s<< endl;
 		if (p->pDown)
 		{

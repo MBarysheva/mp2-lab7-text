@@ -18,7 +18,7 @@ int main()
 	m = txt.GetpCurr();
 	while (key != '8') 
 	{
-		cout << " 1: Down line\n 2: Up line\n 3: Next sect\n 4: Add\n 5: Del\n 6: Save/Read\n 7: Print pCurr\n 8: Exit " << endl;
+		cout << " 1: Down\n 2: Up\n 3: Next\n 4: Add\n 5: Del\n 6: Save\n 7: Read\n 8: Exit\n 9: Clean\n 10: PrintFree\n " << endl;
 		cin >> key;
 		switch (key)
 		{
@@ -46,29 +46,11 @@ int main()
 		case '4':
 		{
 			char k1;
-			cout << /*"5 - ins current pos, 4 - ins down section, 3 - ins down line,*/ "1 - ins next line, 2 - ins next section" << endl;
+			cout <<  "1 - ins line, 2 - ins section" << endl;
 			cin >> k1;
 			switch (k1)
 			{
-				case '5':
-				{
-					cout << "enter string"<<endl;
-					cin >> str1;
-					txt.SetLink(str1);
-					p = txt.GetpCurr();
-					txt.Print(m, p); 
-					break;
-				}
 				case '1':
-				{
-					cout << "enter string"<<endl;
-					cin >> str1;
-					txt.InsNextLine(str1); 
-					p = txt.GetpCurr();
-					txt.Print(m, p);
-					break;
-				}
-				case '2':
 				{
 					cout << "enter string"<<endl;
 					cin >> str1;
@@ -77,25 +59,15 @@ int main()
 					txt.Print(m, p);
 					break;
 				}
-				case '3':
+				case '2':
 				{
 					cout << "enter string"<<endl;
 					cin >> str1;
-					txt.InsNextSect(str1); 
+					txt.InsNextLine(str1); 
 					p = txt.GetpCurr();
 					txt.Print(m, p);
 					break;
 				}
-				case '4':
-				{
-					cout << "enter string"<<endl;
-					cin >> str1;
-					txt.InsDownSect(str1); 
-					p = txt.GetpCurr();
-					txt.Print(m, p);
-					break;
-				}
-			
 			}
 			break;
 		}
@@ -113,16 +85,8 @@ int main()
 		}
 		case '6':
 		{
-			int k2;
-			cout << "1 - read from file, 2 - save file" << endl;
-			cin >> k2;
-			switch (k2) 
-			{
-			case 1: txt.Read("fi.txt"); break;
-			case 2: txt.Write("fi.txt"); break;
-			}
+			txt.Write("fi.txt");
 			break;
-
 		}
 		case '7':
 		{
@@ -130,14 +94,15 @@ int main()
 			txt.Print(m, p);
 			break;
 		}
-		break;
+		case '9':
+		{
+			TTextLink::MemCleaner(txt);
+		}
+		case '10':
+		{
+			TTextLink::PrintFreeLink();
+		}
+	    break;
 		}
 	}
-	cout << "Last printing" << endl;
-	TTextLink::PrintFreeLink();
-	TTextLink::MemCleaner(txt);
-	cout << "aftre memleaner" << endl;
-	TTextLink::PrintFreeLink();
-	
-	_getch();
 }
