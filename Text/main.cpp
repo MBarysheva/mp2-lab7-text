@@ -67,6 +67,12 @@ void TextMenu(TText& txt)
 		if (com == 12) {
 			TTextLink::PintFreeLink();
 		}
+		if (com == 14) {
+			txt.Write("textout.txt");
+		}
+		if (com == 15) {
+			TTextLink::MemCleaner(txt);
+		}
 
 		if (com == 0) {
 			cout << "1. Print" << endl;
@@ -74,14 +80,15 @@ void TextMenu(TText& txt)
 			cout << "3. Down link" << endl;
 			cout << "4. Next link" << endl;
 			cout << "5. Prev link" << endl;
-			cout << "6. Deleted down link" << endl;
-			cout << "7. Deleten next link" << endl;
-			cout << "8. Insertdl - adding the down line" << endl;
-			cout << "9. Insertds - adding the down sectoin" << endl;
-			cout << "10. Insertnl - adding the next line" << endl;
-			cout << "11. Insertns - adding the next sectoin" << endl;
+			cout << "6. Delete down link" << endl;
+			cout << "7. Delete next link" << endl;
+			cout << "8. Insert - adding the down line" << endl;
+			cout << "9. Insert - adding the down section" << endl;
+			cout << "10. Insert - adding the next line" << endl;
+			cout << "11. Insert - adding the next section" << endl;
 			cout << "12. Free - show free memory" << endl;
 			cout << "13. Exit " << endl;
+			cout << "14. Save" << endl;
 			cout << "0. Operations " << endl;
 		}
 	} while (com != 13);
@@ -96,6 +103,4 @@ int main() {
 
 	TextMenu(t);
 
-	TTextLink::MemCleaner(t);
-	TTextLink::PintFreeLink();
 }
